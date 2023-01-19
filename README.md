@@ -4,7 +4,7 @@
 
 ## Descrição
 
-Projeto **Move\.it**, cuja premissa está em gerenciar o tempo das atividades, utilizando a técnica de pomodoro, para que, a cada pausa, seja entrega uma tarefa física, no intuito de movimentar o corpo após longos momentos de concentração.
+Projeto **Move\.it**, cuja premissa está em gerenciar o tempo das atividades, utilizando a técnica de pomodoro, para que, a cada pausa, seja entregue uma tarefa física, no intuito de movimentar o corpo após longos momentos de concentração.
 
 ## Aulas
 
