@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import './index.scss';
+import styles from './index.module.scss';
 
 export function ExperienceBar() {
   const minLevelExperience = 0;
@@ -15,15 +15,15 @@ export function ExperienceBar() {
   const currentExperience = (600 * currentPercentage) / 100;
 
   return (
-    <header className="experience-bar">
+    <header className={`${styles['experience-bar']}`}>
       <span>{minLevelExperience} xp</span>
-      <div className="bar">
+      <div className={`${styles.bar}`}>
         <div
-          className="bar experience"
+          className={`${styles.bar} ${styles.experience}`}
           style={experienceBarStyle}
         />
         <span
-          className="current-experience"
+          className={`${styles['current-experience']}`}
           style={currentExperienceStyle}
         >
           {currentExperience} xp
