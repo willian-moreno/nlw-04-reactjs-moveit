@@ -1,6 +1,4 @@
-.experience-bar {
-  user-select: none;
-
+.experienceBarContainer {
   display: flex;
   align-items: center;
 
@@ -23,7 +21,7 @@
       background: var(--green);
     }
 
-    .current-experience {
+    .currentExperience {
       position: absolute;
       top: 12px;
       transform: translateX(-50%);

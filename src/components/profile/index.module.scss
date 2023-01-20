@@ -1,0 +1,29 @@
+.profileContainer {
+  display: flex;
+  align-items: center;
+
+  .photo {
+    border-radius: 50%;
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .details {
+    margin-left: 1.5rem;
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--title);
+    }
+
+    .level {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
