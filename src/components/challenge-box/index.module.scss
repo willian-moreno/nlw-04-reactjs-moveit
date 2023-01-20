@@ -1,0 +1,139 @@
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-col-start-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.challengeBoxContainer {
+  flex: 1;
+
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem 2rem;
+
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 0 60px rgba($color: #000000, $alpha: 0.05);
+
+  border-radius: 5px;
+
+  text-align: center;
+
+  .challengeNotActive {
+    flex: 1;
+    @include flex-col-center;
+
+    p {
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    > p:first-child {
+      font: 500 1.5rem/1.4 'Inter', sans-serif;
+    }
+
+    > p:not(:first-child) {
+      @include flex-col-center;
+      gap: 16px;
+
+      font: 400 1rem/1.4 'Inter', sans-serif;
+      margin-top: 3rem;
+
+      img {
+        margin-top: 1rem;
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  }
+
+  .challengeIsActive {
+    flex: 1;
+    @include flex-col-start-center;
+
+    header {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 1.25rem;
+      padding: 0 2rem 1.5rem;
+      border-bottom: 1px solid var(--gray-line);
+    }
+
+    main {
+      flex: 1;
+      @include flex-col-center;
+
+      strong {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--title);
+        margin: 1.5rem 0 1rem;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+    }
+
+    footer {
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      gap: 0.5rem;
+
+      .btn {
+        width: 100%;
+        height: 3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 0;
+        border-radius: 5px;
+
+        font-size: 1.25rem;
+        font-weight: 600;
+
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s, filter 0.3s;
+
+        box-shadow: 0 2px 15px -5px rgba($color: #000000, $alpha: 0.5);
+
+        &:hover {
+          filter: brightness(0.9);
+        }
+
+        &:not(:disabled):active {
+          transform: scale(0.97);
+          box-shadow: 0 0 0 0 transparent;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      .challengeFailedBtn {
+        color: var(--white);
+        background: var(--red);
+      }
+
+      .challengeSucceededBtn {
+        color: var(--white);
+        background: var(--green);
+      }
+    }
+  }
+}
