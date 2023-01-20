@@ -5,6 +5,7 @@ import { CompletedChallenges } from '@/components/completed-challenges';
 import { Countdown } from '@/components/countdown';
 import Head from 'next/head';
 import { ChallengeBox } from '@/components/challenge-box';
+import { CountdownProvider } from '@/contexts/CountdownContext';
 
 export default function Home() {
   return (
@@ -14,16 +15,18 @@ export default function Home() {
       </Head>
       <div className={`${styles.container}`}>
         <ExperienceBar />
-        <section className={`${styles.mainSection}`}>
-          <div className={`${styles.leftContainer}`}>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
-          </div>
-          <div className={`${styles.rightContainer}`}>
-            <ChallengeBox />
-          </div>
-        </section>
+        <CountdownProvider>
+          <section className={`${styles.mainSection}`}>
+            <div className={`${styles.leftContainer}`}>
+              <Profile />
+              <CompletedChallenges />
+              <Countdown />
+            </div>
+            <div className={`${styles.rightContainer}`}>
+              <ChallengeBox />
+            </div>
+          </section>
+        </CountdownProvider>
       </div>
     </>
   );

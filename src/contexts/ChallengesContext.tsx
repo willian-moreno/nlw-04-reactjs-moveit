@@ -16,15 +16,12 @@ export type TChallengesContextData = {
   experienceToNextLevel: number;
   activeChallenge: TChallenge | null;
   challengesCompleted: number;
-  countdownFinished: boolean;
   level: number;
   setCurrentExperience: (currentExperience: number) => any;
   setChallengesCompleted: (challengesCompleted: number) => any;
-  setCountdownFinished: (countdownFinished: boolean) => any;
-  levelUp: () => void;
   startNewChallenge: () => void;
   resetChallenge: () => void;
-  challengeCompleted: () => void;
+  completeChallenge: () => void;
 };
 
 export const ChallengesContext = createContext({} as TChallengesContextData);
@@ -35,13 +32,8 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     null as TChallenge | null
   );
   const [challengesCompleted, setChallengesCompleted] = useState(0);
-  const [countdownFinished, setCountdownFinished] = useState(false);
   const [level, setLevel] = useState(1);
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
-
-  function levelUp() {
-    setLevel(level + 1);
-  }
 
   function startNewChallenge() {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -53,37 +45,32 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     setActiveChallenge(null);
   }
 
-  function challengeCompleted() {
-    const addExperience = activeChallenge
-      ? currentExperience + activeChallenge.amount
-      : currentExperience;
-    setCurrentExperience(addExperience);
+  function completeChallenge() {
+    if (!activeChallenge) return;
+
+    let newExperience = currentExperience + activeChallenge.amount;
+
+    if (newExperience >= experienceToNextLevel) {
+      newExperience = newExperience - experienceToNextLevel;
+      setLevel(level + 1);
+    }
+
+    setCurrentExperience(newExperience);
     setChallengesCompleted(challengesCompleted + 1);
     resetChallenge();
   }
 
-  useEffect(() => {
-    if (currentExperience >= experienceToNextLevel) {
-      const experienceRest = currentExperience - experienceToNextLevel;
-      levelUp();
-      setCurrentExperience(experienceRest);
-    }
-  }, [currentExperience]);
-
   const valueProvider: TChallengesContextData = {
     currentExperience,
     experienceToNextLevel,
-    setCurrentExperience,
     activeChallenge,
     challengesCompleted,
-    setChallengesCompleted,
-    countdownFinished,
-    setCountdownFinished,
     level,
-    levelUp,
+    setCurrentExperience,
+    setChallengesCompleted,
     startNewChallenge,
     resetChallenge,
-    challengeCompleted,
+    completeChallenge,
   };
 
   return (
