@@ -1,4 +1,4 @@
-# NLW 4 - Trilha React.js 
+# :rocket: NLW 4 - Trilha React.js 
 
 ### `#NeverStopLearning`
 
@@ -18,5 +18,5 @@ Projeto **Move\.it**, cuja premissa está em gerenciar o tempo das atividades, u
 
 ## Links úteis
 
-- (Repositório RocketSeat)[https://github.com/rocketseat-education/nlw-04-reactjs]
-- (Figma)[https://www.figma.com/file/ge20pu3ofMOKoliUyKx1Nl/Move.it-1.0]
+- [Repositório RocketSeat](https://github.com/rocketseat-education/nlw-04-reactjs)
+- [Figma](https://www.figma.com/file/ge20pu3ofMOKoliUyKx1Nl/Move.it-1.0)
