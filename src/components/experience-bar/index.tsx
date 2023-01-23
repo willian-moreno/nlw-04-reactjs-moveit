@@ -3,11 +3,9 @@ import { CSSProperties, useContext } from 'react';
 import styles from './index.module.scss';
 
 export function ExperienceBar() {
-  const { currentExperience, experienceToNextLevel } =
-    useContext(ChallengesContext);
+  const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
 
-  const percentageToNextLevel =
-    (currentExperience / experienceToNextLevel) * 100;
+  const percentageToNextLevel = (currentExperience / experienceToNextLevel) * 100;
 
   const experienceBarStyle: CSSProperties = {
     width: `${percentageToNextLevel}%`,

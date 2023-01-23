@@ -3,21 +3,11 @@ import { useContext } from 'react';
 import styles from './index.module.scss';
 
 export function Countdown() {
-  const {
-    minutes,
-    seconds,
-    hasFinished,
-    isActive,
-    resetCountdown,
-    startCountdown,
-  } = useContext(CountdownContext);
+  const { minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } =
+    useContext(CountdownContext);
 
-  const [minuteDecimal, minuteUnity] = String(minutes)
-    .padStart(2, '0')
-    .split('');
-  const [secondDecimal, secondUnity] = String(seconds)
-    .padStart(2, '0')
-    .split('');
+  const [minuteDecimal, minuteUnity] = String(minutes).padStart(2, '0').split('');
+  const [secondDecimal, secondUnity] = String(seconds).padStart(2, '0').split('');
 
   return (
     <>

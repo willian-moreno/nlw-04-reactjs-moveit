@@ -1,0 +1,120 @@
+.overlay {
+  background: rgba($color: #edeeef, $alpha: 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.6s;
+  animation: bg-animation 0.6s ease forwards;
+
+  z-index: 100;
+
+  &.hide {
+    opacity: 0;
+    animation: bg-animation 0.6s forwards ease;
+
+    .levelUpModalContainer {
+      animation: fade-slide-out-y 0.6s forwards;
+    }
+  }
+
+  &:not(.hide) {
+    opacity: 1;
+  }
+
+  .levelUpModalContainer {
+    background: var(--white);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    box-shadow: 0 0 60px rgba($color: #000, $alpha: 0.05);
+    text-align: center;
+    position: relative;
+
+    animation: fade-slide-in-y 0.6s forwards ease;
+
+    > header {
+      font-size: 8.75rem;
+      font-weight: 600;
+      color: var(--blue);
+      background: url('/icons/levelUp.svg') no-repeat center;
+      background-size: contain;
+    }
+
+    > strong {
+      font-size: 2.2rem;
+      color: var(--title);
+    }
+
+    > p {
+      font-size: 1.25rem;
+      color: var(--title);
+      margin-top: 0.25rem;
+    }
+
+    > button {
+      position: absolute;
+      background: transparent;
+      border: 0;
+      font-size: 0px;
+
+      top: 0rem;
+      right: 0rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 0.25rem;
+
+      &:hover {
+        img {
+          -webkit-filter: invert(100%) grayscale(100%) brightness(100%) sepia(100%)
+            hue-rotate(-50deg) saturate(400%) contrast(2);
+          filter: grayscale(100%) brightness(100%) sepia(100%) hue-rotate(-50deg) saturate(600%)
+            contrast(0.8);
+
+          transition: filter 0.3s, -webkit-filter 0.3s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes bg-animation {
+  from {
+    background: rgba($color: #edeeef, $alpha: 0);
+  }
+
+  to {
+    background: rgba($color: #edeeef, $alpha: 0.8);
+  }
+}
+
+@keyframes fade-slide-in-y {
+  from {
+    transform: translateY(-100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fade-slide-out-y {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-100px);
+  }
+}

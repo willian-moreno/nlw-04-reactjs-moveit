@@ -4,8 +4,7 @@ import { useContext } from 'react';
 import styles from './index.module.scss';
 
 export function ChallengeBox() {
-  const { activeChallenge, resetChallenge, completeChallenge } =
-    useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
 
   const { resetCountdown } = useContext(CountdownContext);
 
